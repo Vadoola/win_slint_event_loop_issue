@@ -1,0 +1,46 @@
+import { Button, ProgressIndicator } from "std-widgets.slint";
+
+export component AppWin inherits Window {
+    //in-out property <percent> value: 0%;
+    in-out property <int> value: 0;
+    
+
+    callback start();
+    //callback stop();
+    
+    title: "Slint Event Loop Issues";
+    min-width: 300px;
+    min-height: 400px;
+    VerticalLayout {
+        width: 100%;
+        Text {
+            text: "Lets see if the timer stops while moving the window";
+            height: parent.height * 10%;
+        }
+
+        HorizontalLayout {
+            height: parent.height * 10%;
+            Button {
+                text: "Start";
+                clicked => {
+                    root.start();
+                }
+            }
+            /*Button {
+                text: "Stop";
+                clicked => {
+                    root.stop();
+                }
+            }*/
+        }
+
+        Text {
+            text: value;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+        ProgressIndicator {
+            progress: value / 100;
+        }
+    }
+}
