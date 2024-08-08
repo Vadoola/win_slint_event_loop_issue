@@ -34,6 +34,12 @@ export component AppWin inherits Window {
             }*/
         }
 
+        Rectangle {
+            background: red;
+            height: 50px;
+            width: parent.width * mod(animation-tick(), 2s) / 2s;
+        }
+
         Text {
             text: value;
             horizontal-alignment: center;
